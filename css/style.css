@@ -146,7 +146,7 @@ textarea::placeholder {
 }
 
 canvas{
-   background-color: invisible ;
+   background-color: transparent ;  
 }
 
 .palabras-erroneas{
