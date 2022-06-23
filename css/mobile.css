@@ -1,0 +1,12 @@
+textarea{
+   width: fit-content;
+}
+
+canvas{
+   width: 90vw;
+}
+
+.main__section-btn{
+   display: flex;
+   flex-direction: column;
+}
