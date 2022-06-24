@@ -45,7 +45,7 @@ function separarLetras(palabra) {
 }
 
 function dibujarSoportes() {
-  let x = 0,
+  let x = coordenadaX(palabra),
     y = 570;
   contexto.font = "32px Victor Mono";
   contexto.fillStyle = "#fff";
@@ -84,7 +84,7 @@ function pintarLetras(letra) {
 }
 
 function dibujarLetrasCanvas(letra) {
-  let x = 0,
+  let x = coordenadaX(palabra),
     y = 570;
   if (!letrasUsadas.includes(letra)) {
     for (let j = 0; j < letras.length; j++) {
@@ -105,4 +105,11 @@ function dibujarLetrasCanvas(letra) {
       location.reload();
     });
   }
+}
+
+function coordenadaX(palabrita){
+  let x = 50 * palabrita.length;
+  let y = 20 * (palabrita.length - 1);
+  let res = (800 - (x + y)) / 2;
+  return res;
 }
