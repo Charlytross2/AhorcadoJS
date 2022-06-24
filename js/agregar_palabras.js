@@ -12,7 +12,7 @@ btnGuardar.addEventListener("click", (e) => {
   if (validacionRegex.test(texto)) {
     localPalabras.push(texto);
     localStorage.setItem("arreglo",JSON.stringify(localPalabras));
-    modal.classList.add("modal--show");
+    modal.classList.add("modal--show");//4
     resultadoModal.textContent =
       "Palabra agregada correctamente";
     closeModal.addEventListener("click", (e) => {
@@ -21,7 +21,7 @@ btnGuardar.addEventListener("click", (e) => {
       location.href = "../html/juego.html";
     });
   } else {
-    modal.classList.add("modal--show");
+    modal.classList.add("modal--show");//5
     resultadoModal.textContent =
       "Solo letras mayusculas y no mas de 8 caracteres";
     closeModal.addEventListener("click", (e) => {

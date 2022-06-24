@@ -19,8 +19,12 @@ document.addEventListener("keydown", (e) => {
   if (regex.test(nombreTecla)) {
     pintarLetras(nombreTecla);
   } else {
-    if (nombreTecla !== "CapsLock") {
-      modal.classList.add("modal--show");
+    if (
+      nombreTecla !== "Shift" &&
+      nombreTecla !== "Control" &&
+      nombreTecla !== "CapsLock"
+    ) {
+      modal.classList.add("modal--show"); //3
       resultadoModal.textContent = "Solo letras mayusculas";
       closeModal.addEventListener("click", (e) => {
         e.preventDefault();
@@ -31,7 +35,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 function escogerPalabra() {
-  palabras = JSON.parse(localStorage.getItem("arreglo"))
+  palabras = JSON.parse(localStorage.getItem("arreglo"));
   let indice = Math.floor(Math.random() * (palabras.length - 1 - 0 + 1) + 0);
   return palabras[indice];
 }
@@ -45,7 +49,7 @@ function separarLetras(palabra) {
 }
 
 function dibujarSoportes() {
-  let x = coordenadaX(palabra),
+  let x = coordenadaX(),
     y = 570;
   contexto.font = "32px Victor Mono";
   contexto.fillStyle = "#fff";
@@ -73,7 +77,7 @@ function pintarLetras(letra) {
     }
   }
   if (error == 8) {
-    modal.classList.add("modal--show");
+    modal.classList.add("modal--show"); //2
     resultadoModal.textContent = "PERDISTE";
     closeModal.addEventListener("click", (e) => {
       e.preventDefault();
@@ -84,7 +88,7 @@ function pintarLetras(letra) {
 }
 
 function dibujarLetrasCanvas(letra) {
-  let x = coordenadaX(palabra),
+  let x = coordenadaX(),
     y = 570;
   if (!letrasUsadas.includes(letra)) {
     for (let j = 0; j < letras.length; j++) {
@@ -107,9 +111,9 @@ function dibujarLetrasCanvas(letra) {
   }
 }
 
-function coordenadaX(palabrita){
-  let x = 50 * palabrita.length;
-  let y = 20 * (palabrita.length - 1);
+function coordenadaX() {
+  let x = 50 * palabra.length;
+  let y = 20 * (palabra.length - 1);
   let res = (800 - (x + y)) / 2;
   return res;
 }
