@@ -4,24 +4,23 @@ const textArea = document.getElementById("main-textarea"),
   modal = document.querySelector(".modal"),
   closeModal = document.querySelector(".modal__close"),
   resultadoModal = document.querySelector(".modal__resultado");
-const localPalabras = JSON.parse(localStorage.getItem("arreglo"));
+let localPalabras = JSON.parse(localStorage.getItem("palabras"));
 
 btnGuardar.addEventListener("click", (e) => {
   e.preventDefault();
   let texto = textArea.value;
   if (validacionRegex.test(texto)) {
     localPalabras.push(texto);
-    localStorage.setItem("arreglo",JSON.stringify(localPalabras));
-    modal.classList.add("modal--show");//4
-    resultadoModal.textContent =
-      "Palabra agregada correctamente";
+    localStorage.setItem("palabras", JSON.stringify(localPalabras));
+    modal.classList.add("modal--show");
+    resultadoModal.textContent = "Palabra agregada correctamente";
     closeModal.addEventListener("click", (e) => {
       e.preventDefault();
       modal.classList.remove("modal--show");
       location.href = "../html/juego.html";
     });
   } else {
-    modal.classList.add("modal--show");//5
+    modal.classList.add("modal--show"); //5
     resultadoModal.textContent =
       "Solo letras mayusculas y no mas de 8 caracteres";
     closeModal.addEventListener("click", (e) => {

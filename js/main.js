@@ -12,6 +12,8 @@ const sectionErroneas = document.querySelector(".palabras-erroneas"),
   closeModal = document.querySelector(".modal__close"),
   resultadoModal = document.querySelector(".modal__resultado");
 
+localStorage.setItem("palabras", JSON.stringify(palabras));
+
 dibujarSoportes();
 dibujarAhorcado();
 document.addEventListener("keydown", (e) => {
@@ -35,7 +37,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 function escogerPalabra() {
-  palabras = JSON.parse(localStorage.getItem("arreglo"));
+  palabras = JSON.parse(localStorage.getItem("palabras"));
   let indice = Math.floor(Math.random() * (palabras.length - 1 - 0 + 1) + 0);
   return palabras[indice];
 }
