@@ -35,9 +35,13 @@ document.addEventListener("keydown", (e) => {
 });
 
 function escogerPalabra() {
-  if(localStorage.length === 0) palabras = ["ALURA", "JAVASCRIPT", "AHORCADO"];
+  if (localStorage.length === 0) palabras = ["ALURA", "JAVASCRIPT", "AHORCADO"];
   localStorage.setItem("palabras", JSON.stringify(palabras));
   let indice = Math.floor(Math.random() * (palabras.length - 1 - 0 + 1) + 0);
+  if (localStorage > 2) {
+    let newPalabras = JSON.parse(localStorage.getItem("palabras"));
+    return newPalabras[indice];
+  }
   return palabras[indice];
 }
 
