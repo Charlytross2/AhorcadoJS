@@ -21,16 +21,6 @@ canvas {
    flex-direction: column;
 }
 
-.input {
-   margin-top: 50px;
-   width: 500px;
-   height: 40px;
-   padding: 5px;
-   font-size: 20px;
-   border-radius: 10px;
-   border: 2px solid #555;
-}
-
 .capa {
    display: flex;
    gap: 5px;

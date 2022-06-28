@@ -28,19 +28,5 @@ function cargarTeclado() {
   htmlCapas.forEach(
     (capa) => (teclado.innerHTML += `<div class="capa">${capa}</div>`)
   );
-  const input = document.querySelector(".input");
-  document.querySelectorAll(".tecla").forEach((tecla) => {
-    tecla.addEventListener("click", () => {
-      if (tecla.textContent === "BACKSPACE" && input.value !== null) {
-        let contenido = input.value;
-        let borrado = contenido.substr(0, contenido.length - 1);
-        input.value = borrado;
-      } else if (tecla.textContent === "SPACE") input.value += " ";
-      else {
-        input.value += tecla.textContent;
-        tecla.classList.add("presionado");
-      }
-    });
-  });
 }
 cargarTeclado();

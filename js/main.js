@@ -24,7 +24,7 @@ document.addEventListener("keydown", (e) => {
       nombreTecla !== "Control" &&
       nombreTecla !== "CapsLock"
     ) {
-      modal.classList.add("modal--show"); //3
+      modal.classList.add("modal--show");
       resultadoModal.textContent = "Solo letras mayusculas";
       closeModal.addEventListener("click", (e) => {
         e.preventDefault();
@@ -34,14 +34,16 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+document.querySelectorAll(".tecla").forEach((tecla) => {
+  tecla.addEventListener("click", () => {
+    pintarLetras(tecla.textContent);
+  });
+});
+
 function escogerPalabra() {
-  if (localStorage.length === 0) palabras = ["ALURA", "JAVASCRIPT", "AHORCADO"];
-  localStorage.setItem("palabras", JSON.stringify(palabras));
+  // if (localStorage.length === 0) palabras = ["ALURA", "JAVASCRIPT", "AHORCADO"];
+  // localStorage.setItem("palabras", JSON.stringify(palabras));
   let indice = Math.floor(Math.random() * (palabras.length - 1 - 0 + 1) + 0);
-  if (localStorage > 2) {
-    let newPalabras = JSON.parse(localStorage.getItem("palabras"));
-    return newPalabras[indice];
-  }
   return palabras[indice];
 }
 

@@ -1,29 +1,24 @@
-textarea{
+textarea {
    width: 90%;
    height: 90%;
 }
 
-canvas{
+canvas {
    width: 90vw;
 }
 
-.main__section-btn{
+.main__section-btn {
    display: flex;
    flex-direction: column;
    text-align: center;
-   margin-bottom: 10rem;
+   margin-bottom: 18rem;
 }
 
-.teclado__container{
+.teclado__container {
    width: 350px;
    margin: 0;
 }
 
-.input{
-   width: 300px;
-   margin-bottom: 10px;
-}
-
-.tecla{
-   margin: 0;
+.tecla {
+   margin: 2rem 0 0 0;
 }
