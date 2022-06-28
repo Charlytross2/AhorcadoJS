@@ -137,6 +137,7 @@ textarea::placeholder {
    display: flex;
    justify-content: center;
    margin-top: 2rem;
+   margin-bottom: 5rem;
 }
 
 .btn-guardar,
@@ -211,4 +212,8 @@ canvas{
 .modal__close:hover {
    color: #F26250;
    background-color: #fff;
+}
+
+.app{
+   display: none;
 }
