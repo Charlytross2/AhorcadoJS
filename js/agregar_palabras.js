@@ -11,7 +11,7 @@ btnGuardar.addEventListener("click", (e) => {
   let texto = textArea.value;
   if (validacionRegex.test(texto)) {
     localPalabras.push(texto);
-    localStorage.setItem("palabras", JSON.stringify(localPalabras));
+    localStorage.setItem("addPalabras", JSON.stringify(localPalabras));
     modal.classList.add("modal--show");
     resultadoModal.textContent = "Palabra agregada correctamente";
     closeModal.addEventListener("click", (e) => {

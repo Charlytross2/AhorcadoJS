@@ -14,6 +14,8 @@ const sectionErroneas = document.querySelector(".palabras-erroneas"),
 
 dibujarSoportes();
 dibujarAhorcado();
+localStorage.setItem("palabras", JSON.stringify(palabras));
+
 document.addEventListener("keydown", (e) => {
   let nombreTecla = e.key;
   if (regex.test(nombreTecla)) {
@@ -41,10 +43,14 @@ document.querySelectorAll(".tecla").forEach((tecla) => {
 });
 
 function escogerPalabra() {
-  // if (localStorage.length === 0) palabras = ["ALURA", "JAVASCRIPT", "AHORCADO"];
-  // localStorage.setItem("palabras", JSON.stringify(palabras));
-  let indice = Math.floor(Math.random() * (palabras.length - 1 - 0 + 1) + 0);
-  return palabras[indice];
+  if (localStorage.getItem("addPalabras") === null) {
+    let indice = Math.floor(Math.random() * (palabras.length - 1 - 0 + 1) + 0);
+    return palabras[indice];
+  } else {
+    let storagePalabras = JSON.parse(localStorage.getItem("addPalabras"));
+    let indice = Math.floor(Math.random() * (storagePalabras.length - 1 - 0 + 1) + 0);
+    return storagePalabras[indice];
+  }
 }
 
 function separarLetras(palabra) {
